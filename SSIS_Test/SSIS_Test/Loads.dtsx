@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Loads"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{33742DC5-BA4B-4128-B5AA-2DC010BCB006}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{8288BBBC-97E5-4208-B7E0-A758B262D85A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -388,34 +388,34 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="149.6,41.6"
+          Size="149.6,58.4"
           Id="Package\Fluxo de Carga"
-          TopLeft="576.666643751993,147.333334504234" />
+          TopLeft="684.999972780547,175.933334731526" />
         <AnnotationLayout
-          Text="Fluxo com todas as cargas do projeto&#xD;&#xA;&#xD;&#xA;  1 - Limpar a tabela [AdventureWorks2019].[HumanResources].[ReviewedRates]&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;  2 - Carregar dados do ficheiro processados Rate para ReviewedRates"
+          Text="Fluxo com todas as cargas do projeto&#xD;&#xA;&#xD;&#xA;  1 - Limpar a tabela [AdventureWorks2019].[HumanResources].[ReviewedRates]&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;  2 - Carregar dados da pasta &quot;processados&quot; para [AdventureWorks2019].[HumanResources].[ReviewedRates]"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="448.8,120"
+          Size="601.6,120"
           Id="18bfbca7-8e2b-4e10-ac16-62f31a90a516"
-          TopLeft="16.6666660043929,31.2000002479553" />
+          TopLeft="25.8333323068089,34.6666669421726" />
         <NodeLayout
           Size="220.8,41.6"
           Id="Package\Limpar Tabela ReviewedRates"
-          TopLeft="539.999978542329,39.8666669834985" />
+          TopLeft="651.666640771761,37.2666669628356" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="650.933311147161,81.4666669834985">
+          TopLeft="760.933306776154,78.8666669628356">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,65.8666675207351"
+              EndConnector="0,97.0666677686904"
               Start="0,0"
-              End="0,58.3666675207351">
+              End="0,89.5666677686904">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.3666675207351" />
+                    End="0,89.5666677686904" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

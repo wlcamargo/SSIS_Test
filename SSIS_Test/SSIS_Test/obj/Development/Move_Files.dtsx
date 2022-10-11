@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Move_Files"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{D62D1CE6-3C67-447C-B28A-B82D38FE78A9}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{7B93D309-EDFB-439F-BE9D-608E5352DEAE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -41,13 +41,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Mover Arquivo Rates"
+      DTS:refId="Package\Mover Ficheiro Rates"
       DTS:CreationName="Microsoft.FileSystemTask"
       DTS:Description="Tarefa Sistema de Arquivos"
       DTS:DTSID="{644F5F3E-DA59-462C-8112-FD003248127C}"
       DTS:ExecutableType="Microsoft.FileSystemTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Mover Arquivo Rates"
+      DTS:ObjectName="Mover Ficheiro Rates"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -71,9 +71,9 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\Mover Arquivo Rates"
-          TopLeft="103.333329227236,133.466667727364" />
+          Size="176.8,41.6"
+          Id="Package\Mover Ficheiro Rates"
+          TopLeft="89.9999964237215,117.866667603387" />
         <AnnotationLayout
           Text="Move arquivo extraído do AdventureWorks para pasta processados"
           ParentId="Package"
