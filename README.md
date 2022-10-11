@@ -15,3 +15,5 @@ Melhorias na próxima fase:
  - Criar envio de e-mail na falha do processo
  - Renomear ficheiro processado 
  - Criar chave primária na tabela que recebe arquivo processado
+ - Criar loops para viabilizar o movimento de mais de um arquivo 
+ 
