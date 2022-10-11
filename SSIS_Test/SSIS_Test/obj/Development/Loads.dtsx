@@ -1,0 +1,502 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/11/2022 7:39:32 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-UL4QIO3"
+  DTS:CreatorName="DESKTOP-UL4QIO3\walla"
+  DTS:DTSID="{682045FE-C8DC-4777-9407-2BFEBE38C180}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="2070"
+  DTS:ObjectName="Loads"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{33742DC5-BA4B-4128-B5AA-2DC010BCB006}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{6413BEFA-74FB-493F-9B0F-D363F2ABA95D}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\walla\source\repos\SSIS_Test\SSIS_Test\Processados\Rates.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorks2019]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0B816C3E-348A-447D-93D4-AC23E4AA9CF3}"
+      DTS:ObjectName="LocalHost.AdventureWorks2019">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Loads-{0B816C3E-348A-447D-93D4-AC23E4AA9CF3}LocalHost.AdventureWorks2019;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fluxo de Carga"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{172F544C-CB1F-4BEF-BFAD-76387E89D647}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fluxo de Carga"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="AdventureWorks2019_HumanResources_ReviewedRates"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[HumanResources].[ReviewedRates]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.AdventureWorks2019]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input].Columns[NationalIDNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NationalIDNumber"
+                      externalMetadataColumnId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input].ExternalColumns[NationalIDNumber]"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].Columns[NationalIDNumber]" />
+                    <inputColumn
+                      refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input].Columns[AverageRate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AverageRate"
+                      externalMetadataColumnId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input].ExternalColumns[AverageRate]"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].Columns[AverageRate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      dataType="i8"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input].ExternalColumns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="NationalIDNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input].ExternalColumns[AverageRate]"
+                      dataType="cy"
+                      name="AverageRate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo de Carga\ReviewedRates"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="ReviewedRates"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Rates</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo de Carga\ReviewedRates.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].Columns[BusinessEntityID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].ExternalColumns[BusinessEntityID]"
+                      length="255"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].Columns[NationalIDNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].ExternalColumns[NationalIDNumber]"
+                      length="255"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].Columns[NationalIDNumber]"
+                      name="NationalIDNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].Columns[AverageRate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].ExternalColumns[AverageRate]"
+                      length="255"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].Columns[AverageRate]"
+                      name="AverageRate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].ExternalColumns[BusinessEntityID]"
+                      dataType="wstr"
+                      length="255"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].ExternalColumns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="255"
+                      name="NationalIDNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output].ExternalColumns[AverageRate]"
+                      dataType="wstr"
+                      length="255"
+                      name="AverageRate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[BusinessEntityID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[NationalIDNumber]"
+                      name="NationalIDNumber" />
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[AverageRate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[AverageRate]"
+                      name="AverageRate" />
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fluxo de Carga.Paths[Excel Source Output]"
+              endId="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Fluxo de Carga\ReviewedRates.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpar Tabela ReviewedRates"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{7CC84034-691A-4FEE-96ED-48A71D7A9490}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpar Tabela ReviewedRates"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0B816C3E-348A-447D-93D4-AC23E4AA9CF3}"
+          SQLTask:SqlStatementSource="truncate table [AdventureWorks2019].[HumanResources].[ReviewedRates]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{636B266E-31AE-4172-96E1-556AF95DB894}"
+      DTS:From="Package\Limpar Tabela ReviewedRates"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fluxo de Carga" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Fluxo de Carga"
+          TopLeft="576.666643751993,147.333334504234" />
+        <AnnotationLayout
+          Text="Fluxo com todas as cargas do projeto&#xD;&#xA;&#xD;&#xA;  1 - Limpar a tabela [AdventureWorks2019].[HumanResources].[ReviewedRates]&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;  2 - Carregar dados do ficheiro processados Rate para ReviewedRates"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="448.8,120"
+          Id="18bfbca7-8e2b-4e10-ac16-62f31a90a516"
+          TopLeft="16.6666660043929,31.2000002479553" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\Limpar Tabela ReviewedRates"
+          TopLeft="539.999978542329,39.8666669834985" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="650.933311147161,81.4666669834985">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.8666675207351"
+              Start="0,0"
+              End="0,58.3666675207351">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.3666675207351" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Fluxo de Carga">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Fluxo de Carga\ReviewedRates"
+          TopLeft="135.833327935802,140.400001115799" />
+        <NodeLayout
+          Size="345.6,41.6"
+          Id="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates"
+          TopLeft="34.9999986092252,272.133335496055" />
+        <EdgeLayout
+          Id="Package\Fluxo de Carga.Paths[Excel Source Output]"
+          TopLeft="209.616663272514,182.000001115799">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90.1333343802557"
+              Start="0,0"
+              End="0,82.6333343802557">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.6333343802557" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="- Extração do ficheiro de Excel na pasta processados&#xD;&#xA;&#xD;&#xA;- Load ficheiro em tabela no Adventure Works"
+          ParentId="Package\Fluxo de Carga"
+          FontInfo="{assembly:Null}"
+          Size="304.8,72"
+          Id="1f82bbe6-6573-49b2-95d6-95174f2323d1"
+          TopLeft="64.1666641169127,13.866666776869" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo de Carga\ReviewedRates">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
