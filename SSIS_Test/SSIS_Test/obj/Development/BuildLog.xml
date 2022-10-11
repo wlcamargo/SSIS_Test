@@ -2,28 +2,28 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SSIS_Test</Name>
-    <LastWriteTime>2022-10-11T23:03:57.208329Z</LastWriteTime>
+    <LastWriteTime>2022-10-11T23:42:52.6944953Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Extracts.dtsx</Name>
-      <LastWriteTime>2022-10-11T23:03:57.1814006Z</LastWriteTime>
+      <LastWriteTime>2022-10-11T23:40:25.7604378Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Loads.dtsx</Name>
-      <LastWriteTime>2022-10-11T23:08:24.7043705Z</LastWriteTime>
+      <LastWriteTime>2022-10-11T23:44:12.8401406Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Move_Files.dtsx</Name>
-      <LastWriteTime>2022-10-11T23:08:32.1547721Z</LastWriteTime>
+      <LastWriteTime>2022-10-11T23:40:57.4846838Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Main.dtsx</Name>
-      <LastWriteTime>2022-10-11T23:08:42.464147Z</LastWriteTime>
+      <LastWriteTime>2022-10-11T23:18:19.9949509Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

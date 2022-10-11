@@ -11,23 +11,11 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Loads"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{8288BBBC-97E5-4208-B7E0-A758B262D85A}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{D576291C-D4C6-4C13-8331-4ECA6545B69C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{6413BEFA-74FB-493F-9B0F-D363F2ABA95D}"
-      DTS:ObjectName="Excel Connection Manager">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\walla\source\repos\SSIS_Test\SSIS_Test\Processados\Rates.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorks2019]"
       DTS:CreationName="OLEDB"
@@ -38,6 +26,18 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Loads-{0B816C3E-348A-447D-93D4-AC23E4AA9CF3}LocalHost.AdventureWorks2019;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Processados_Rate]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2BABA834-AE65-40C5-A176-611CA555CFD5}"
+      DTS:ObjectName="Processados_Rate">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\walla\source\repos\SSIS_Test\SSIS_Test\Processados\Rate.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -210,7 +210,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">Rates</property>
+                  name="OpenRowset">Rate$</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -237,8 +237,8 @@
               <connections>
                 <connection
                   refId="Package\Fluxo de Carga\ReviewedRates.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Processados_Rate]"
+                  connectionManagerRefId="Package.ConnectionManagers[Processados_Rate]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -386,18 +386,11 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="149.6,58.4"
           Id="Package\Fluxo de Carga"
           TopLeft="684.999972780547,175.933334731526" />
-        <AnnotationLayout
-          Text="Fluxo com todas as cargas do projeto&#xD;&#xA;&#xD;&#xA;  1 - Limpar a tabela [AdventureWorks2019].[HumanResources].[ReviewedRates]&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;  2 - Carregar dados da pasta &quot;processados&quot; para [AdventureWorks2019].[HumanResources].[ReviewedRates]"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="601.6,120"
-          Id="18bfbca7-8e2b-4e10-ac16-62f31a90a516"
-          TopLeft="25.8333323068089,34.6666669421726" />
         <NodeLayout
           Size="220.8,41.6"
           Id="Package\Limpar Tabela ReviewedRates"
@@ -424,6 +417,13 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Fluxo com todas as cargas do projeto&#xA;&#xA;  1 - Limpar a tabela [AdventureWorks2019].[HumanResources].[ReviewedRates]&#xA;&#xA;&#xA;  2 - Carregar dados da pasta &quot;processados&quot; para [AdventureWorks2019].[HumanResources].[ReviewedRates]"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="601.6,120"
+          Id="18bfbca7-8e2b-4e10-ac16-62f31a90a516"
+          TopLeft="25.8333323068089,34.6666669421726" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -463,7 +463,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="- Extração do ficheiro de Excel na pasta processados&#xD;&#xA;&#xD;&#xA;- Load ficheiro em tabela no Adventure Works"
+          Text="- Extração do ficheiro de Excel na pasta processados&#xA;&#xA;- Load ficheiro em tabela no Adventure Works"
           ParentId="Package\Fluxo de Carga"
           FontInfo="{assembly:Null}"
           Size="304.8,72"
@@ -473,7 +473,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Fluxo de Carga\ReviewedRates">
+    design-time-name="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -486,7 +486,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Fluxo de Carga\AdventureWorks2019_HumanResources_ReviewedRates">
+    design-time-name="Package\Fluxo de Carga\ReviewedRates">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

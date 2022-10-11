@@ -11,35 +11,11 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Extracts"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{75623D65-132E-470F-9030-06717DDC492A}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{D4F4A3E8-6041-4C71-A899-A5310393225F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{56A3FD51-E844-416E-BD7A-B7AE6AFE9B7B}"
-      DTS:ObjectName="Excel Connection Manager">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\walla\source\repos\SSIS_Test\SSIS_Test\Rates.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{AF2D5A64-5993-48FA-8CD0-4DEC692ADE63}"
-      DTS:ObjectName="Excel Connection Manager 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\walla\source\repos\SSIS_Test\SSIS_Test\Rates.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorks2019]"
       DTS:CreationName="OLEDB"
@@ -50,6 +26,18 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Extracts-{D19D3AF9-0492-49CF-BD00-AEC25C356715}LocalHost.AdventureWorks2019;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Rate]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{FE232EF3-8B56-4062-AE1D-FACC92DE1DE5}"
+      DTS:ObjectName="Rate">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\walla\source\repos\SSIS_Test\SSIS_Test\Rate.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -224,11 +212,11 @@ group by
               </outputs>
             </component>
             <component
-              refId="Package\Fluxo de Extrações\Rates"
+              refId="Package\Fluxo de Extrações\Rate"
               componentClassID="Microsoft.ExcelDestination"
               contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Excel Destination"
-              name="Rates"
+              name="Rate"
               usesDispositions="true">
               <properties>
                 <property
@@ -238,7 +226,7 @@ group by
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">Rates</property>
+                  name="OpenRowset">Rate$</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -272,54 +260,54 @@ group by
               </properties>
               <connections>
                 <connection
-                  refId="Package\Fluxo de Extrações\Rates.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  refId="Package\Fluxo de Extrações\Rate.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Rate]"
+                  connectionManagerRefId="Package.ConnectionManagers[Rate]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input]"
+                  refId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Excel Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input].Columns[BusinessEntityID]"
+                      refId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input].Columns[BusinessEntityID]"
                       cachedDataType="i4"
                       cachedName="BusinessEntityID"
-                      externalMetadataColumnId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input].ExternalColumns[BusinessEntityID]"
+                      externalMetadataColumnId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input].ExternalColumns[BusinessEntityID]"
                       lineageId="Package\Fluxo de Extrações\HumanResources_Employee.Outputs[OLE DB Source Output].Columns[BusinessEntityID]" />
                     <inputColumn
-                      refId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input].Columns[NationalIDNumber]"
+                      refId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input].Columns[NationalIDNumber]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="NationalIDNumber"
-                      externalMetadataColumnId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input].ExternalColumns[NationalIDNumber]"
+                      externalMetadataColumnId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input].ExternalColumns[NationalIDNumber]"
                       lineageId="Package\Fluxo de Extrações\HumanResources_Employee.Outputs[OLE DB Source Output].Columns[NationalIDNumber]" />
                     <inputColumn
-                      refId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input].Columns[AverageRate]"
+                      refId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input].Columns[AverageRate]"
                       cachedDataType="cy"
                       cachedName="AverageRate"
-                      externalMetadataColumnId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input].ExternalColumns[AverageRate]"
+                      externalMetadataColumnId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input].ExternalColumns[AverageRate]"
                       lineageId="Package\Fluxo de Extrações\HumanResources_Employee.Outputs[OLE DB Source Output].Columns[AverageRate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input].ExternalColumns[BusinessEntityID]"
+                      refId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input].ExternalColumns[BusinessEntityID]"
                       dataType="wstr"
                       length="255"
                       name="BusinessEntityID" />
                     <externalMetadataColumn
-                      refId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input].ExternalColumns[NationalIDNumber]"
+                      refId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input].ExternalColumns[NationalIDNumber]"
                       dataType="wstr"
                       length="255"
                       name="NationalIDNumber" />
                     <externalMetadataColumn
-                      refId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input].ExternalColumns[AverageRate]"
+                      refId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input].ExternalColumns[AverageRate]"
                       dataType="wstr"
                       length="255"
                       name="AverageRate" />
@@ -328,22 +316,22 @@ group by
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Fluxo de Extrações\Rates.Outputs[Excel Destination Error Output]"
+                  refId="Package\Fluxo de Extrações\Rate.Outputs[Excel Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Excel Destination Error Output"
-                  synchronousInputId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input]">
+                  synchronousInputId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Fluxo de Extrações\Rates.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Fluxo de Extrações\Rate.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Fluxo de Extrações\Rates.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Fluxo de Extrações\Rate.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Fluxo de Extrações\Rates.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Fluxo de Extrações\Rate.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Fluxo de Extrações\Rates.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Fluxo de Extrações\Rate.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -355,7 +343,7 @@ group by
           <paths>
             <path
               refId="Package\Fluxo de Extrações.Paths[OLE DB Source Output]"
-              endId="Package\Fluxo de Extrações\Rates.Inputs[Excel Destination Input]"
+              endId="Package\Fluxo de Extrações\Rate.Inputs[Excel Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Fluxo de Extrações\HumanResources_Employee.Outputs[OLE DB Source Output]" />
           </paths>
@@ -380,10 +368,10 @@ group by
           Id="Package\Fluxo de Extrações"
           TopLeft="420.83331661092,63.266667169465" />
         <AnnotationLayout
-          Text="Fluxo com todas as extrações do projeto&#xD;&#xA;  1 - Extrair tabela do Adventure Works para ficheiro de Excel"
+          Text="Fluxo com todas as extrações do projeto&#xA;  1 - Extrair tabela do Adventure Works para ficheiro de Excel"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="349.6,60"
+          Size="349.6,56"
           Id="3ee9aeab-96a5-4abf-baa3-668fc9e1e695"
           TopLeft="10.8333329028553,19.9333334917492" />
       </GraphLayout>
@@ -393,29 +381,36 @@ group by
     design-time-name="Package\Fluxo de Extrações">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="213.6,41.6"
           Id="Package\Fluxo de Extrações\HumanResources_Employee"
           TopLeft="12.4999995032947,135.200001074473" />
+        <AnnotationLayout
+          Text="- Extração do Adventure Works&#xA;&#xA;- Query que calcula média de Rate&#xA;&#xA;- Load ficheiro em uma pasta na rede&#xA;"
+          ParentId="Package\Fluxo de Extrações"
+          FontInfo="{assembly:Null}"
+          Size="227.2,120"
+          Id="8494628f-431e-48aa-a4ce-7fc8a771ad05"
+          TopLeft="19.1666659050518,13.0000001033147" />
         <NodeLayout
-          Size="105.6,41.6"
-          Id="Package\Fluxo de Extrações\Rates"
-          TopLeft="62.4999975164733,271.266668822501" />
+          Size="100,41.6"
+          Id="Package\Fluxo de Extrações\Rate"
+          TopLeft="69.1666639182304,260.000002066294" />
         <EdgeLayout
           Id="Package\Fluxo de Extrações.Paths[OLE DB Source Output]"
-          TopLeft="117.299998509884,176.800001074473">
+          TopLeft="119.233331710763,176.800001074473">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,94.4666677480274"
+              EndConnector="0,83.2000009918215"
               Start="0,0"
-              End="0,86.9666677480274">
+              End="0,75.7000009918215">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,86.9666677480274" />
+                    End="0,75.7000009918215" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -424,13 +419,6 @@ group by
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="- Extração do Adventure Works&#xD;&#xA;&#xD;&#xA;- Query que calcula média de Rate&#xD;&#xA;&#xD;&#xA;- Load ficheiro em uma pasta na rede&#xD;&#xA;"
-          ParentId="Package\Fluxo de Extrações"
-          FontInfo="{assembly:Null}"
-          Size="227.2,120"
-          Id="8494628f-431e-48aa-a4ce-7fc8a771ad05"
-          TopLeft="19.1666659050518,13.0000001033147" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -443,7 +431,7 @@ group by
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Fluxo de Extrações\Rates">
+    design-time-name="Package\Fluxo de Extrações\Rate">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
