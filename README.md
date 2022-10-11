@@ -1,16 +1,12 @@
 # SSIS_Test
 
+Fase Inicial
 
-Objetivo 
+Estapa 1 - Realizar extração de uma tabela do banco de dados, com destino em um ficheiro de Excel.
 
-Estapa 1 
-Realizar extração de uma tabela do banco de dados, com destino em um ficheiro de Excel.
+Etapa 2 - Mover esse ficheiro para pasta processados. 
 
-Etapa 2
-Mover esse ficheiro para pasta processados. 
-
-Etapa 3
-Realizar carga de ficheiro processado para banco de dados.
+Etapa 3 - Realizar carga de ficheiro processado para banco de dados.
 
 
 ---------------------------------------------------------------------------------------------
